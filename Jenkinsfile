@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Static Analysis') {
             steps {
-                echo 'Run the static analysis to the code-2' 
+                echo "Running static analysis ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
         }
         stage('Compile') {
