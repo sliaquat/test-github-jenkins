@@ -1,9 +1,13 @@
 pipeline {
     agent any 
+    environment {
+        AWS_SECRET_KEY = credentials('aws-secret-key')
+    }    
     stages {
         stage('Static Analysis') {
             steps {
                 echo "Running static analysis ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                echo "AWS_SECRET_KEY: ${env.AWS_SECRET_KEY}"
             }
         }
         stage('Compile') {
